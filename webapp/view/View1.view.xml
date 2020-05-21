@@ -1,0 +1,55 @@
+<mvc:View 
+	controllerName="ovly.data.binding.curriculo.controller.View1" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core" 
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Text text="Você está usando o sistema {device>/os/name} e o navegador {device>/browser/name}" />
+							<form:SimpleForm >
+								<form:content>
+									<core:Title text="Dados pessoais" />
+									
+									<Label text="Nome" />
+									<Text text="{/nome}" />
+									
+									<Label text="Sobrenome" />
+									<Text text="{/sobrenome}" />
+									
+									<core:Title text="{i18n>address}" />
+									
+									<Label text="Rua" />
+									<Text text="{/endereco/rua/nome} - {/endereco/rua/numero}" />
+									
+									<Label text="Cidade" />
+									<Text text="{/endereco/cidade}" />
+									
+									<Label text="Bairro" />
+									<Text text="{/endereco/estado/nome}" />									
+									
+									<Label text="Estado" />
+									<Text text="{/endereco/estado/sigle}" />
+									
+									<core:Title text="{i18n>quiz}" />
+									<Label text="1" />
+									<Slider min="0" max="100" value="{/quiz_1}" enabled="false" />
+									<RatingIndicator value="{/QUIZ_1_media}" enabled="false" />
+								</form:content>
+							</form:SimpleForm>
+							
+							<List items="{/competencias}">
+								<items>
+									<StandardListItem title="{}"/>
+								</items>
+							</List>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
